@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Dylan
+ * @author Dylan, Nav, Altyn
  */
 public class JProject extends Application {
     
