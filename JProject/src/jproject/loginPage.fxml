@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="500.0" minWidth="500.0" prefHeight="747.0" prefWidth="568.0" style="-fx-background-color: E6E6E9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jproject.LoginController">
+   <children>
+      <CubicCurve blendMode="SRC_ATOP" controlX1="-525.3255615234375" controlX2="812.22509765625" controlY1="-130.3677978515625" controlY2="-443.3677978515625" endX="381.0" endY="183.0" fill="#0b132bbf" layoutX="186.0" layoutY="576.0" startX="-187.0" startY="183.0" stroke="TRANSPARENT" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="184.0" layoutY="143.0" text="Smart Home" textAlignment="CENTER" textFill="#0b132b">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <CubicCurve blendMode="SRC_ATOP" controlX1="-310.0312805175781" controlX2="148.6744384765625" controlY1="-303.19921875" controlY2="-257.0" endX="449.27978515625" endY="213.17718505859375" fill="#0b132bbf" layoutX="116.0" layoutY="547.0" startX="-117.0" startY="212.0" stroke="TRANSPARENT" />
+   </children>
+</AnchorPane>
