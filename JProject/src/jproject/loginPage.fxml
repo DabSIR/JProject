@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="500.0" minWidth="500.0" prefHeight="747.0" prefWidth="568.0" style="-fx-background-color: E6E6E9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jproject.LoginController">
+<AnchorPane id="AnchorPane" fx:id="mainPage" minHeight="500.0" minWidth="500.0" prefHeight="747.0" prefWidth="568.0" style="-fx-background-color: E6E6E9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jproject.LoginPageController">
    <children>
-      <CubicCurve blendMode="SRC_ATOP" controlX1="-525.3255615234375" controlX2="812.22509765625" controlY1="-130.3677978515625" controlY2="-443.3677978515625" endX="381.0" endY="183.0" fill="#0b132bbf" layoutX="186.0" layoutY="576.0" startX="-187.0" startY="183.0" stroke="TRANSPARENT" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="184.0" layoutY="143.0" text="Smart Home" textAlignment="CENTER" textFill="#0b132b">
+      <CubicCurve blendMode="SRC_ATOP" controlX1="239.59033203125" controlX2="563.81884765625" controlY1="125.3375244140625" controlY2="-83.134765625" endX="417.2044677734375" endY="-594.3387451171875" fill="#0b132bbf" layoutX="184.0" layoutY="521.0" startX="-186.0" startY="-576.0" stroke="TRANSPARENT" />
+      <CubicCurve blendMode="SRC_ATOP" controlX1="-376.873779296875" controlX2="374.599365234375" controlY1="688.865234375" controlY2="367.3465270996094" endX="624.2044677734375" endY="78.54278564453125" fill="#0b132bbf" layoutX="76.0" layoutY="-158.0" startX="-96.99273681640625" startY="91.82623291015625" stroke="TRANSPARENT" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#ededed00" height="47.0" layoutX="136.0" layoutY="408.0" stroke="#0b132b" strokeType="INSIDE" strokeWidth="3.0" width="297.0" />
+      <TextField fx:id="usernameField" layoutX="161.0" layoutY="417.0" prefHeight="25.0" prefWidth="246.0" style="-fx-background-color: rgb(0,0,0,0);">
          <font>
-            <Font size="36.0" />
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#ededed00" height="47.0" layoutX="136.0" layoutY="497.0" stroke="#0b132b" strokeType="INSIDE" strokeWidth="3.0" width="297.0" />
+      <Label alignment="CENTER" layoutX="161.0" layoutY="395.0" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: E6E6E9;" text="Username" textFill="#0b132b">
+         <font>
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <CubicCurve blendMode="SRC_ATOP" controlX1="-310.0312805175781" controlX2="148.6744384765625" controlY1="-303.19921875" controlY2="-257.0" endX="449.27978515625" endY="213.17718505859375" fill="#0b132bbf" layoutX="116.0" layoutY="547.0" startX="-117.0" startY="212.0" stroke="TRANSPARENT" />
+      <Label alignment="CENTER" layoutX="161.0" layoutY="484.0" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: E6E6E9;" text="Password" textFill="#0b132b">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="loginBtn" arcHeight="50.0" arcWidth="50.0" fill="#ededed00" height="47.0" layoutX="136.0" layoutY="588.0" onMouseClicked="#loginHandle" stroke="#0b132b" strokeType="INSIDE" strokeWidth="3.0" width="297.0" />
+      <Label alignment="CENTER" layoutX="219.0" layoutY="598.0" prefHeight="27.0" prefWidth="110.0" style="-fx-background-color: E6E6E9;" text="Login" textFill="#0b132b">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="passwordField" layoutX="162.0" layoutY="506.0" prefHeight="25.0" prefWidth="246.0" style="-fx-background-color: rgb(0,0,0,0);">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
