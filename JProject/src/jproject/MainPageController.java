@@ -1,45 +1,41 @@
+package jproject;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package jproject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import static jproject.JProject.stage;
 
 /**
  * FXML Controller class
  *
  * @author Dylan
  */
-public class LoginPageController implements Initializable {
+public class MainPageController implements Initializable {
 
     @FXML
     private AnchorPane mainPage;
-    @FXML
-    private Rectangle loginBtn;
-    @FXML
-    private TextField usernameField;
-    @FXML
-    private TextField passwordField;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-
-    @FXML
-    private void loginHandle(MouseEvent event) {
         
-    }
+        
+        Screen screen = Screen.getPrimary();
+        double screenWidth = JProject.stage.getWidth();
+        double screenHeight = JProject.stage.getHeight();
+        mainPage.setPrefWidth(screenWidth);
+        mainPage.setPrefHeight(screenHeight);
+    }    
     
 }
