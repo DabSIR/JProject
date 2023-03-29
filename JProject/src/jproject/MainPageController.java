@@ -14,12 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import static jproject.JProject.stage;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
 
 /**
  * FXML Controller class
@@ -29,7 +26,7 @@ import static jproject.JProject.stage;
 public class MainPageController implements Initializable {
 
     @FXML
-    private AnchorPane mainPage;
+    private VBox mainPage;
 
     /**
      * Initializes the controller class.
