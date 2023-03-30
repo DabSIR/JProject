@@ -27,10 +27,7 @@ public class JProject extends Application {
         //Load the main page
         Parent mainPage = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         scene = new Scene(mainPage, windowWidth, windowHeight);
-        changeScene(mainPage);  
-       
-        
-
+        changeScene(mainPage);      
     }
     
     /**

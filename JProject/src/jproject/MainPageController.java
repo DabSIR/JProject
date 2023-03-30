@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -26,7 +27,7 @@ import javafx.scene.layout.VBox;
 public class MainPageController implements Initializable {
 
     @FXML
-    private VBox mainPage;
+    private BorderPane mainPage;
 
     /**
      * Initializes the controller class.
