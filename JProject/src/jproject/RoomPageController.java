@@ -12,9 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -22,7 +22,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Dylan
  */
-public class HomePageController implements Initializable {
+public class RoomPageController implements Initializable {
 
     @FXML
     private AnchorPane homePage;
@@ -32,10 +32,8 @@ public class HomePageController implements Initializable {
     private Label roomBtn;
     @FXML
     private Label energyBtn;
-    
     @FXML
     private VBox mainFrame;
-
 
     /**
      * Initializes the controller class.
@@ -45,18 +43,18 @@ public class HomePageController implements Initializable {
         AnchorPane.setTopAnchor(mainFrame, 0.0);
         AnchorPane.setBottomAnchor(mainFrame, 0.0);
         AnchorPane.setLeftAnchor(mainFrame, 0.0);
-        AnchorPane.setRightAnchor(mainFrame, 0.0);   
+        AnchorPane.setRightAnchor(mainFrame, 0.0);  
     }    
 
     @FXML
-    private void goToRooms(MouseEvent event) throws IOException {
-        Parent roomPage = FXMLLoader.load(getClass().getResource("roomPage.fxml"));
-        JProject.changeScene(roomPage);
+    private void goToHome(MouseEvent event) throws IOException {
+        Parent homePage = FXMLLoader.load(getClass().getResource("homePage.fxml"));
+        JProject.changeScene(homePage);
     }
 
     @FXML
-    private void goToEnergy(MouseEvent event) {
+    private void goToEnergy(KeyEvent event) {
     }
 
-
+    
 }
