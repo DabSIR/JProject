@@ -55,7 +55,9 @@ public class HomePageController implements Initializable {
     }
 
     @FXML
-    private void goToEnergy(MouseEvent event) {
+    private void goToEnergy(MouseEvent event) throws IOException {
+        Parent energyPage = FXMLLoader.load(getClass().getResource("energyPage.fxml"));
+        JProject.changeScene(energyPage);
     }
 
 

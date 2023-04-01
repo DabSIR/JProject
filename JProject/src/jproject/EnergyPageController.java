@@ -22,38 +22,26 @@ import javafx.scene.layout.VBox;
  *
  * @author Dylan
  */
-public class RoomPageController implements Initializable {
+public class EnergyPageController implements Initializable {
 
+    @FXML
+    private AnchorPane homePage;
+    @FXML
+    private VBox mainFrame;
     @FXML
     private Label homeBtn;
     @FXML
     private Label roomBtn;
     @FXML
     private Label energyBtn;
-    @FXML
-    private VBox mainFrame;
-    @FXML
-    private AnchorPane roomPage;
-    @FXML
-    private Label addRoomBtn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        AnchorPane.setTopAnchor(mainFrame, 0.0);
-        AnchorPane.setBottomAnchor(mainFrame, 0.0);
-        AnchorPane.setLeftAnchor(mainFrame, 0.0);
-        AnchorPane.setRightAnchor(mainFrame, 0.0);  
+        // TODO
     }    
-
-    @FXML
-    private void goToEnergy(MouseEvent event) throws IOException {
-        Parent energyPage = FXMLLoader.load(getClass().getResource("energyPage.fxml"));
-        JProject.changeScene(energyPage);
-    }
-
 
 
     @FXML
@@ -62,9 +50,10 @@ public class RoomPageController implements Initializable {
         JProject.changeScene(homePage);
     }
 
-
-
-
-
+    @FXML
+    private void goToRooms(MouseEvent event) throws IOException {
+        Parent roomPage = FXMLLoader.load(getClass().getResource("roomPage.fxml"));
+        JProject.changeScene(roomPage);
+    }
     
 }

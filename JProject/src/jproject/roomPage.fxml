@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="812.0" prefWidth="375.0" style="-fx-background-color: #0B132B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jproject.RoomPageController">
+<AnchorPane fx:id="roomPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="812.0" prefWidth="375.0" style="-fx-background-color: #0B132B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jproject.RoomPageController">
    <children>
       <VBox fx:id="mainFrame" prefHeight="812.0" prefWidth="375.0" spacing="25.0">
          <children>
@@ -36,7 +36,7 @@
                         <Font name="Arial" size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="addRoomBtn" layoutX="35.0" layoutY="68.0" onMouseClicked="#addRoom" prefHeight="34.0" prefWidth="29.0" text="+" textFill="#e6e6e9" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                  <Label fx:id="addRoomBtn" layoutX="35.0" layoutY="68.0" prefHeight="34.0" prefWidth="29.0" text="+" textFill="#e6e6e9" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial" size="48.0" />
                      </font>
@@ -67,7 +67,7 @@
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="energyBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="198.0" layoutY="29.0" onKeyPressed="#goToEnergy" prefHeight="100.0" prefWidth="112.0" text="Energy" textFill="#e6e6e9">
+                  <Label fx:id="energyBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="198.0" layoutY="29.0" onMouseClicked="#goToEnergy" prefHeight="100.0" prefWidth="112.0" text="Energy" textFill="#e6e6e9">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
