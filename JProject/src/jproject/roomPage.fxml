@@ -2,8 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -31,7 +33,7 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="35.0" layoutY="35.0" prefHeight="42.0" prefWidth="272.0" text="BedRoom" textFill="#e6e6e9" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                  <Label layoutX="35.0" layoutY="35.0" prefHeight="42.0" prefWidth="272.0" text="Rooms" textFill="#e6e6e9" GridPane.columnSpan="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial" size="36.0" />
                      </font>
@@ -41,6 +43,15 @@
                         <Font name="Arial" size="48.0" />
                      </font>
                   </Label>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="500.0" prefWidth="325.0" style="-fx-background-color: #0B132B; -fx-background: #0B132B;" vbarPolicy="NEVER" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <content>
+                        <FlowPane fx:id="roomList" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="500.0" prefWidth="325.0" prefWrapLength="325.0" vgap="16.0">
+                           <padding>
+                              <Insets top="16.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
                </children>
                <VBox.margin>
                   <Insets />

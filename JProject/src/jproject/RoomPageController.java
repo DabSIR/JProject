@@ -21,7 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -50,6 +53,9 @@ public class RoomPageController implements Initializable {
     private AnchorPane roomPage;
     @FXML
     private Label addRoomBtn;
+    @FXML
+    private FlowPane roomList;
+
 
     /**
      * Initializes the controller class.
@@ -67,7 +73,6 @@ public class RoomPageController implements Initializable {
         Parent energyPage = FXMLLoader.load(getClass().getResource("energyPage.fxml"));
         JProject.changeScene(energyPage);
     }
-
 
 
     @FXML
@@ -111,18 +116,7 @@ public class RoomPageController implements Initializable {
                 + "-fx-text-fill: #E6E6E9; -fx-border-color: #E6E6E9; "
                 + "-fx-border-width: 2px; -fx-font-size: 16px; "
                 + "-fx-font-family: Arial;");
-        container.getChildren().addAll(roomNamesField, addButton);
-        
-        //Handler to ensure user has enetered a name for the room
-        addButton.setOnAction(e -> {
-            String roomName = roomNameField.getText().trim();
-            if (roomName.isEmpty()) {
-                errorHandling.showErrorAlert("Please enter a value");
-            } else {
-                JProject.getHome().addRoom(roomName, new Room(roomName));
-                System.out.println(JProject.getHome().getRoom(roomName));             
-            }
-        });
+        container.getChildren().addAll(roomNamesField, addButton); 
         
         // Create a new popup window and set its content
         Stage popUpStage = new Stage();
@@ -134,10 +128,45 @@ public class RoomPageController implements Initializable {
                 + (JProject.getStage().getHeight() - 500) / 2);
         popUpStage.setScene(new Scene(container));
         
+        //Handler to ensure user has enetered a name for the room
+        addButton.setOnAction(e -> {
+            String roomName = roomNameField.getText().trim();
+            if (roomName.isEmpty()) {
+                errorHandling.showErrorAlert("Please enter a value");
+            } else {
+                JProject.getHome().addRoom(roomName, new Room(roomName));   
+                System.out.println(JProject.getHome().getRooms().size());
+            }
+        });
+        
         // Show the popup window using the showAndWait() method
-        popUpStage.showAndWait();         
+        popUpStage.showAndWait();  
+        
+        displayRooms();
     }
     
-
+    /**
+     * Iterates over the HashMap for the rooms in the house, and displays
+     * a new StackPane for each room
+     */
+    private void displayRooms() {
+        if (!(JProject.getHome().getRooms().isEmpty())) {   
+            roomList.getChildren().clear();
+            HBox roomBox;
+            for (String roomName : JProject.getHome().getRooms().keySet()) {
+                roomBox = new HBox();
+                roomBox.setStyle("-fx-background-color: #1C2541; "
+                    + "-fx-background-radius: 25px; -fx-padding: 16px;");
+                roomBox.setAlignment(Pos.CENTER);
+                roomBox.setPrefWidth(325);
+                roomBox.setPrefHeight(150);
+                         
+                Label label = new Label(roomName + ": " 
+                    + JProject.getHome().getRooms().get(roomName));
+                roomBox.getChildren().add(label);
+                roomList.getChildren().add(roomBox);
+           }
+        }
+    }
     
 }
