@@ -5,12 +5,16 @@ import java.util.ArrayList;
 public class Room {
 
     private String name;
-    private ArrayList<Appliance> appliance;
+    private ArrayList<Appliance> appliances;
     private String location;
     private double totalPowerUsage;
     private double currentPowerUsage;
     private double totalWaterUsage;
     private double currentWaterUsage;
+
+    public ArrayList<Appliance> getAppliances() {
+        return appliances;
+    }
 
     /**
      * Constructor

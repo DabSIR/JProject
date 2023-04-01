@@ -5,7 +5,10 @@
 package jproject;
 
 import Classes.Room;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -66,6 +69,7 @@ public class RoomPageController implements Initializable {
         AnchorPane.setBottomAnchor(mainFrame, 0.0);
         AnchorPane.setLeftAnchor(mainFrame, 0.0);
         AnchorPane.setRightAnchor(mainFrame, 0.0);  
+        displayRooms();
     }    
 
     @FXML
@@ -128,14 +132,27 @@ public class RoomPageController implements Initializable {
                 + (JProject.getStage().getHeight() - 500) / 2);
         popUpStage.setScene(new Scene(container));
         
-        //Handler to ensure user has enetered a name for the room
+        //Handler to ensure user has entered a name for the room
         addButton.setOnAction(e -> {
             String roomName = roomNameField.getText().trim();
             if (roomName.isEmpty()) {
                 errorHandling.showErrorAlert("Please enter a value");
             } else {
-                JProject.getHome().addRoom(roomName, new Room(roomName));   
+                Room newRoom = new Room(roomName);
+                JProject.getHome().addRoom(roomName, newRoom);   
                 System.out.println(JProject.getHome().getRooms().size());
+                
+                //Add the room to the Room_List.txt file to be stored
+                PrintWriter writer = null;
+                try {
+                    File file = new File(roomName);
+                    writer = new PrintWriter("src/Room_List/" + file + ".txt");
+                    writer.println();
+                    writer.close();
+                    
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         
@@ -160,10 +177,17 @@ public class RoomPageController implements Initializable {
                 roomBox.setAlignment(Pos.CENTER);
                 roomBox.setPrefWidth(325);
                 roomBox.setPrefHeight(150);
-                         
-                Label label = new Label(roomName + ": " 
-                    + JProject.getHome().getRooms().get(roomName));
-                roomBox.getChildren().add(label);
+                
+                Label roomLabel = null;
+                if (JProject.getHome().getRooms().get(roomName).getAppliances() == null) {
+                   roomLabel = new Label(roomName + "\n 0 Appliances");
+                }
+                else {
+                    roomLabel = new Label(roomName + "\n" 
+                    + JProject.getHome().getRooms().get(roomName).getAppliances().size()
+                    + " Appliances");
+                }             
+                roomBox.getChildren().add(roomLabel);
                 roomList.getChildren().add(roomBox);
            }
         }

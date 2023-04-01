@@ -1,5 +1,10 @@
 package Classes;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,6 +15,30 @@ public class SmartHome {
 	private ArrayList<EnergyReport> energyReports;
 	private SecuritySystem securitySystem;
 	private Profile profile;
+        
+        
+        public SmartHome() {
+           // Create a File object for the folder directory
+            File folder = new File("src/Room_List");
+
+            // Get a list of all the files in the directory
+            File[] files = folder.listFiles();
+
+            // Loop through each file and read its contents
+            for (File file : files) {
+                String fileName = file.getName();
+                String roomName = fileName.substring(0, fileName.lastIndexOf('.'));
+                rooms.put(roomName, new Room(roomName));
+                try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        System.out.println(line);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } 
+        }
         
         public HashMap<String, Room> getRooms() {
             return rooms;
