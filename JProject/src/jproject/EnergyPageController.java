@@ -40,7 +40,10 @@ public class EnergyPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        AnchorPane.setTopAnchor(mainFrame, 0.0);
+        AnchorPane.setBottomAnchor(mainFrame, 0.0);
+        AnchorPane.setLeftAnchor(mainFrame, 0.0);
+        AnchorPane.setRightAnchor(mainFrame, 0.0);  
     }    
 
 

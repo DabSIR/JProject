@@ -4,92 +4,100 @@ import java.util.ArrayList;
 
 public class Room {
 
-	private String name;
-	private ArrayList<Appliance> appliance;
-	private String location;
-	private double totalPowerUsage;
-	private double currentPowerUsage;
-	private double totalWaterUsage;
-	private double currentWaterUsage;
+    private String name;
+    private ArrayList<Appliance> appliance;
+    private String location;
+    private double totalPowerUsage;
+    private double currentPowerUsage;
+    private double totalWaterUsage;
+    private double currentWaterUsage;
 
-	/**
-	 * 
-	 * @param appliance
-	 */
-	public void addAppliance(Appliance appliance) {
+    /**
+     * Constructor
+     * @param name 
+     */
+    public Room(String name) {
+        this.name = name;
+    }
 
-	}
+    /**
+     * 
+     * @param appliance
+     */
+    public void addAppliance(Appliance appliance) {
 
-	/**
-	 * 
-	 * @param appliance
-	 */
-	public void removeAppliance(Appliance appliance) {
+    }
 
-	}
+    /**
+     * 
+     * @param appliance
+     */
+    public void removeAppliance(Appliance appliance) {
 
-	public String getName() {
-		return this.name;
-	}
+    }
 
-	public String getLocation() {
-		return this.location;
-	}
+    public String getName() {
+            return this.name;
+    }
 
-	/**
-	 * 
-	 * @param location
-	 */
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    public String getLocation() {
+            return this.location;
+    }
 
-	public double getTotalPowerUsage() {
-		return this.totalPowerUsage;
-	}
+    /**
+     * 
+     * @param location
+     */
+    public void setLocation(String location) {
+            this.location = location;
+    }
 
-	/**
-	 * 
-	 * @param totalPowerUsage
-	 */
-	public void setTotalPowerUsage(double totalPowerUsage) {
-		this.totalPowerUsage = totalPowerUsage;
-	}
+    public double getTotalPowerUsage() {
+            return this.totalPowerUsage;
+    }
 
-	public double getCurrentPowerUsage() {
-		return this.currentPowerUsage;
-	}
+    /**
+     * 
+     * @param totalPowerUsage
+     */
+    public void setTotalPowerUsage(double totalPowerUsage) {
+            this.totalPowerUsage = totalPowerUsage;
+    }
 
-	/**
-	 * 
-	 * @param currentPowerUsage
-	 */
-	public void setCurrentPowerUsage(double currentPowerUsage) {
-		this.currentPowerUsage = currentPowerUsage;
-	}
+    public double getCurrentPowerUsage() {
+            return this.currentPowerUsage;
+    }
 
-	public double getTotalWaterUsage() {
-		return this.totalWaterUsage;
-	}
+    /**
+     * 
+     * @param currentPowerUsage
+     */
+    public void setCurrentPowerUsage(double currentPowerUsage) {
+            this.currentPowerUsage = currentPowerUsage;
+    }
 
-	/**
-	 * 
-	 * @param totalWaterUsage
-	 */
-	public void setTotalWaterUsage(double totalWaterUsage) {
-		this.totalWaterUsage = totalWaterUsage;
-	}
+    public double getTotalWaterUsage() {
+            return this.totalWaterUsage;
+    }
 
-	public double getCurrentWaterUsage() {
-		return this.currentWaterUsage;
-	}
+    /**
+     * 
+     * @param totalWaterUsage
+     */
+    public void setTotalWaterUsage(double totalWaterUsage) {
+            this.totalWaterUsage = totalWaterUsage;
+    }
 
-	/**
-	 * 
-	 * @param currentWaterUsage
-	 */
-	public void setCurrentWaterUsage(double currentWaterUsage) {
-		this.currentWaterUsage = currentWaterUsage;
-	}
+    public double getCurrentWaterUsage() {
+            return this.currentWaterUsage;
+    }
+
+    /**
+     * 
+     * @param currentWaterUsage
+     */
+    public void setCurrentWaterUsage(double currentWaterUsage) {
+            this.currentWaterUsage = currentWaterUsage;
+    }
 
 }

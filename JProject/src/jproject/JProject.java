@@ -1,5 +1,6 @@
 package jproject;
 
+import Classes.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,15 +13,17 @@ import javafx.stage.Stage;
  * @author Dylan, Nav, Altyn
  */
 public class JProject extends Application {
-    protected static Stage stage;
-    protected static Scene scene;
+    private static SmartHome home = new SmartHome();
     
+    private static Stage stage;
+    private static Scene scene;
+
     private static int windowHeight = 812;
     private static int windowWidth = 375;
     
     @Override
     public void start(Stage stage) throws Exception {
-        
+     
         //Setup the stage
         this.stage = stage;   
         
@@ -28,6 +31,9 @@ public class JProject extends Application {
         Parent mainPage = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         scene = new Scene(mainPage, windowWidth, windowHeight);
         changeScene(mainPage);      
+        
+        
+        
     }
     
     /**
@@ -46,6 +52,30 @@ public class JProject extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+    
+     public static SmartHome getHome() {
+        return home;
+    }
+
+    public static void setHome(SmartHome home) {
+        JProject.home = home;
+    }
+    
+    public static Stage getStage() {
+        return stage;
+    }
+
+    public static void setStage(Stage stage) {
+        JProject.stage = stage;
+    }
+
+    public static Scene getScene() {
+        return scene;
+    }
+
+    public static void setScene(Scene scene) {
+        JProject.scene = scene;
     }
 } 
     

@@ -4,18 +4,32 @@
  */
 package jproject;
 
+import Classes.Room;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -62,9 +76,68 @@ public class RoomPageController implements Initializable {
         JProject.changeScene(homePage);
     }
 
-
-
-
+    /**
+     * Handler to add a room
+     * @param event 
+     */
+    @FXML
+    private void addRoom(MouseEvent event) {
+        
+        //Setup window
+        Label label = new Label("Add Room");
+        label.setTextFill(Color.web("#E6E6E9"));
+        label.setFont(new Font("Arial", 20));
+        
+        VBox container = new VBox(label);
+        container.setSpacing(25);
+        container.setStyle("-fx-background-color: #0B132B;");
+        container.setAlignment(Pos.CENTER);
+        container.setPrefWidth(300);
+        container.setPrefHeight(500);
+        
+        //Input fields
+        Label room = new Label("Room: ");
+        room.setTextFill(Color.web("#E6E6E9"));
+        room.setFont(new Font("Arial", 16));
+        TextField roomNameField = new TextField();
+        roomNameField.setPromptText("Bedroom");
+        HBox roomNamesField = new HBox();
+        roomNamesField.setAlignment(Pos.CENTER);
+        roomNamesField.getChildren().addAll(room, roomNameField);
+        
+        //Add Button
+        Button addButton = new Button("Add");
+        addButton.setStyle("-fx-background-color: #1C1C1C; "
+                + "-fx-text-fill: #E6E6E9; -fx-border-color: #E6E6E9; "
+                + "-fx-border-width: 2px; -fx-font-size: 16px; "
+                + "-fx-font-family: Arial;");
+        container.getChildren().addAll(roomNamesField, addButton);
+        
+        //Handler to ensure user has enetered a name for the room
+        addButton.setOnAction(e -> {
+            String roomName = roomNameField.getText().trim();
+            if (roomName.isEmpty()) {
+                errorHandling.showErrorAlert("Please enter a value");
+            } else {
+                JProject.getHome().addRoom(roomName, new Room(roomName));
+                System.out.println(JProject.getHome().getRoom(roomName));             
+            }
+        });
+        
+        // Create a new popup window and set its content
+        Stage popUpStage = new Stage();
+        popUpStage.initOwner(JProject.getStage());
+        popUpStage.initModality(Modality.APPLICATION_MODAL);
+        popUpStage.setX(JProject.getStage().getX() 
+                + (JProject.getStage().getWidth() - 300) / 2);
+        popUpStage.setY(JProject.getStage().getY() 
+                + (JProject.getStage().getHeight() - 500) / 2);
+        popUpStage.setScene(new Scene(container));
+        
+        // Show the popup window using the showAndWait() method
+        popUpStage.showAndWait();         
+    }
+    
 
     
 }

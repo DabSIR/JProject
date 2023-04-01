@@ -36,7 +36,7 @@
                         <Font name="Arial" size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="addRoomBtn" layoutX="35.0" layoutY="68.0" prefHeight="34.0" prefWidth="29.0" text="+" textFill="#e6e6e9" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                  <Label fx:id="addRoomBtn" layoutX="35.0" layoutY="68.0" onMouseClicked="#addRoom" prefHeight="34.0" prefWidth="29.0" text="+" textFill="#e6e6e9" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial" size="48.0" />
                      </font>

@@ -1,22 +1,31 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SmartHome {
 
-	private ArrayList<Room> rooms;
+	private HashMap<String, Room> rooms = new HashMap<>();
 	private ArrayList<Scene> scenes;
 	private ArrayList<EnergyReport> energyReports;
 	private SecuritySystem securitySystem;
 	private Profile profile;
+        
+        public HashMap<String, Room> getRooms() {
+            return rooms;
+        }
+
+        public Room getRoom(String roomName) {
+            return rooms.get(roomName);
+        }
 
 	/**
 	 * 
 	 * @param room
 	 */
-	public void addRoom(Room room) {
+	public void addRoom(String roomName, Room room) {
 		// TODO - implement SmartHome.addRoom
-		throw new UnsupportedOperationException();
+		rooms.put(roomName, room);
 	}
 
 	/**
