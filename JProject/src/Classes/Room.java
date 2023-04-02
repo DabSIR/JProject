@@ -1,6 +1,12 @@
 package Classes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import jproject.errorHandling;
 
 public class Room {
 
@@ -22,14 +28,43 @@ public class Room {
      */
     public Room(String name) {
         this.name = name;
+        this.appliances = new ArrayList<Appliance>();
+    }
+    
+    public Room(String name, ArrayList<Appliance> appliances) {
+        this.name = name;
+        this.appliances = appliances;
+    }
+    
+    public void addAppliance(Appliance appliance) {
+        appliances.add(appliance);
     }
 
     /**
      * 
      * @param appliance
      */
-    public void addAppliance(Appliance appliance) {
-
+    public void addApplianceToFile(Appliance appliance) throws IOException {
+        File file = new File("src/Room_List/" + getName() + ".txt");
+        
+        //Check if file exists
+        if (file.exists()) {
+            
+            //Add an appliance to the rooms appliances list
+            PrintWriter writer = null;
+            try {
+                writer = new PrintWriter(new FileWriter(file, true));
+                writer.append(appliance.getName() + "," 
+                    + appliance.getClass().getSimpleName() + "\n");
+                writer.close();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else {
+            errorHandling.showErrorAlert("Porblem adding the appliance please retry");
+        }
+        
     }
 
     /**

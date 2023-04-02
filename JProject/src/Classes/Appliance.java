@@ -1,11 +1,21 @@
 package Classes;
 
-public abstract class Appliance {
+public class Appliance {
 
 	private String name;
 	private boolean isOn;
 	private double waterUsage;
 	private double powerUsage;
+
+        public Appliance(String name) {
+            this.name = name;
+        }
+        
+        public Appliance(String name, double waterUsage, double powerUsage) {
+            this.name = name;
+            this.waterUsage = waterUsage;
+            this.powerUsage = powerUsage;
+        }
 
 	/**
 	 * 

@@ -1,9 +1,26 @@
 package Classes;
 
 public class AirConditioner extends Appliance {
+    
+    private float temperature;
 
-	private float temperature;
+    public AirConditioner(String name) {
+        super(name);
+        this.temperature = 22;
+    }
+    
+    public AirConditioner(float temperature, String name) {
+        super(name);
+        this.temperature = temperature;
+    }
 
+    public AirConditioner(float temperature, String name, double waterUsage, double powerUsage) {
+        super(name, waterUsage, powerUsage);
+        this.temperature = temperature;
+    }
+
+        
+        
 	public float getTemperature() {
 		return this.temperature;
 	}

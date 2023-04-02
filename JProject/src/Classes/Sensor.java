@@ -6,6 +6,16 @@ public class Sensor extends Appliance implements Security_Interface {
 	private String location;
 	private boolean isOn;
 
+    public Sensor(int id, String name) {
+        super(name);
+        this.id = id;
+    }
+
+    public Sensor(int id, String name, double waterUsage, double powerUsage) {
+        super(name, waterUsage, powerUsage);
+        this.id = id;
+    }
+
 	public int getId() {
 		return this.id;
 	}

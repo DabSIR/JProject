@@ -1,0 +1,3 @@
+
+Lamp,Light
+PC Monitor,TV
