@@ -54,7 +54,7 @@ public class MainPageController implements Initializable {
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setCycleCount(Timeline.INDEFINITE);
         // Start the animation
-        timeline = new Timeline(new KeyFrame(Duration.seconds(4), event -> {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
             // Load the new scene after the animation is complete
             try {
                 loginAction();

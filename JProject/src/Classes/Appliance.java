@@ -1,11 +1,14 @@
 package Classes;
 
+import jproject.ApplianceTypes;
+
 public class Appliance {
 
 	private String name;
 	private boolean isOn;
 	private double waterUsage;
 	private double powerUsage;
+        private String type;
 
         public Appliance(String name) {
             this.name = name;
@@ -17,6 +20,24 @@ public class Appliance {
             this.powerUsage = powerUsage;
         }
 
+        public double getWaterUsage() {
+            return waterUsage;
+        }
+
+        public void setWaterUsage(double waterUsage) {
+            this.waterUsage = waterUsage;
+        }
+
+        public double getPowerUsage() {
+            return powerUsage;
+        }
+
+        public void setPowerUsage(double powerUsage) {
+            this.powerUsage = powerUsage;
+        }
+        
+        
+
 	/**
 	 * 
 	 * @param name
@@ -25,56 +46,16 @@ public class Appliance {
 		this.name = name;
 	}
 
+        /**
+         * 
+         * @return name
+         */
 	public String getName() {
 		return this.name;
 	}
 
-	public boolean isOn() {
-		// TODO - implement Appliance.isOn
-		throw new UnsupportedOperationException();
-	}
+	
 
-	public void turnOn() {
-		// TODO - implement Appliance.turnOn
-		throw new UnsupportedOperationException();
-	}
-
-	public void turnOff() {
-		// TODO - implement Appliance.turnOff
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param on
-	 */
-	public void setOn(boolean on) {
-		// TODO - implement Appliance.setOn
-		throw new UnsupportedOperationException();
-	}
-
-	public double getPowerUsage() {
-		return this.powerUsage;
-	}
-
-	/**
-	 * 
-	 * @param usage
-	 */
-	public void setPowerUsage(double usage) {
-		this.powerUsage = usage;
-	}
-
-	public double getWaterUsage() {
-		return this.waterUsage;
-	}
-
-	/**
-	 * 
-	 * @param waterUsage
-	 */
-	public void setWaterUsage(double waterUsage) {
-		this.waterUsage = waterUsage;
-	}
+	
 
 }

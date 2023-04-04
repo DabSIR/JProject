@@ -2,23 +2,17 @@ package Classes;
 
 public class Sensor extends Appliance implements Security_Interface {
 
-	private int id;
 	private String location;
 	private boolean isOn;
 
-    public Sensor(int id, String name) {
+    public Sensor(String name) {
         super(name);
-        this.id = id;
     }
 
     public Sensor(int id, String name, double waterUsage, double powerUsage) {
         super(name, waterUsage, powerUsage);
-        this.id = id;
+ 
     }
-
-	public int getId() {
-		return this.id;
-	}
 
 	public String getLocation() {
 		return this.location;
