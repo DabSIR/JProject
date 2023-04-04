@@ -10,13 +10,10 @@ package jproject;
  */
 public enum ApplianceTypes {
     Light,
+    AC,
     Dishwasher,
-    Washer,
     Dryer,
     TV,
     Fridge,
-    Camera,
-    Sensor;
-    
-
+    Washer;
 }

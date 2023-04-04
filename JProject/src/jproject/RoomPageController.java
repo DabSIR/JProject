@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package jproject;
 
 import Classes.*;
@@ -5,8 +9,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -76,7 +78,7 @@ public class RoomPageController implements Initializable {
     @FXML
     private void goToEnergy(MouseEvent event) throws IOException {
         Parent energyPage = FXMLLoader.load(getClass()
-            .getResource("energyPage.fxml"));
+                .getResource("energyPage.fxml"));
         JProject.changeScene(energyPage);
     }
 
@@ -89,7 +91,7 @@ public class RoomPageController implements Initializable {
     @FXML
     private void goToHome(MouseEvent event) throws IOException {
         Parent homePage = FXMLLoader.load(getClass()
-            .getResource("homePage.fxml"));
+                .getResource("homePage.fxml"));
         JProject.changeScene(homePage);
     }
 
@@ -140,9 +142,9 @@ public class RoomPageController implements Initializable {
         //Add Button
         Button addButton = new Button("Add");
         addButton.setStyle("-fx-background-color: #1C2541; "
-            + "-fx-text-fill: #E6E6E9; -fx-border-color: #E6E6E9; "
-            + "-fx-border-width: 2px; -fx-font-size: 16px; "
-            + "-fx-font-family: Arial;");
+                + "-fx-text-fill: #E6E6E9; -fx-border-color: #E6E6E9; "
+                + "-fx-border-width: 2px; -fx-font-size: 16px; "
+                + "-fx-font-family: Arial;");
         container.getChildren().addAll(roomNamesField, addButton); 
         
         // Create a new popup window and set its content
@@ -160,7 +162,7 @@ public class RoomPageController implements Initializable {
         addButton.setOnAction(e -> {
             String roomName = roomNameField.getText().trim();
             if (roomName.isEmpty()) {
-                ErrorHandling.showErrorAlert("Please enter a value");
+                errorHandling.showErrorAlert("Please enter a value");
             } else {
                 Room newRoom = new Room(roomName);
                 JProject.getHome().addRoom(roomName, newRoom);
@@ -239,43 +241,137 @@ public class RoomPageController implements Initializable {
         
     // Create a dropdown menu
     ContextMenu menu = new ContextMenu();
-    
-    //Handler to view a room
-    MenuItem viewRoom = new MenuItem("View Room");
-    viewRoom.setOnAction(new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event){
-            try {
-                Room selectedRoom = JProject.getHome().getRoom(roomName);
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("roomView.fxml"));
-                Parent roomViewPage = loader.load();
-                RoomViewController roomController = loader.getController();
-                roomController.setRoom(selectedRoom);
-                JProject.changeScene(roomViewPage);
-            } catch (IOException ex) {
-                ErrorHandling.showErrorAlert("Problem loading room please retry.");
-            }
-        }
-    });
-    menu.getItems().add(viewRoom);
-    
-    //Add appliances menu 
+
+    //Add appliances menu
     MenuItem addAppliance = new MenuItem("Add Appliance");
     addAppliance.setOnAction(e -> {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("addAppliancePopUp.fxml"));
-            Parent addAppliancePopUp = loader.load();
-            AddAppliancePopUpController controller = loader.getController();
-            controller.setRoom(JProject.getHome().getRoom(roomName));
-            Scene scene = new Scene(addAppliancePopUp);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait(); 
-            displayRooms();
-        } catch (IOException ex) {
-            ErrorHandling.showErrorAlert("Error, please retry.");
+        
+        //Setup window
+        Label label = new Label("Add Appliance");
+        label.setTextFill(Color.web("#E6E6E9"));
+        label.setFont(new Font("Arial", 25));
+        
+        VBox container = new VBox(label);
+        container.setSpacing(25);
+        container.setStyle("-fx-background-color: #0B132B;"
+                + "-fx-padding: 25px;");
+        container.setAlignment(Pos.TOP_CENTER);
+        container.setPrefWidth(300);
+        container.setPrefHeight(500);
+        
+        //Input fields
+        HBox applianceInput = new HBox();
+        applianceInput.setSpacing(16);
+        applianceInput.setAlignment(Pos.CENTER);
+        Label applianceLabel = new Label("Name: ");
+        applianceLabel.setTextFill(Color.web("#E6E6E9"));
+        applianceLabel.setFont(new Font("Arial", 18));
+        TextField applianceName = new TextField();
+        applianceName.setPrefWidth(175);
+        applianceName.setPrefHeight(30);
+        
+        //Set a restriction to the textfield so user can only enter 25 chars
+        UnaryOperator<TextFormatter.Change> lengthFilter = change -> {
+        if (change.getControlNewText().length() <= 25) {
+            return change;
         }
+            return null;
+        };
+        TextFormatter<String> textFormatter = new TextFormatter<>(lengthFilter);
+        applianceName.setTextFormatter(textFormatter);
+        applianceName.setPromptText("New Appliance");
+        
+        applianceInput.getChildren().addAll(applianceLabel,
+    applianceName);
+        
+        // Create the ListView
+        ListView<String> applianctTypeList = new ListView<>();   
+        applianctTypeList.setStyle("-fx-background: #1C2541; "
+            + "-fx-text-fill: #E6E6E9; -fx-border-color: #E6E6E9; "
+            + "-fx-border-width: 2px; -fx-font-size: 16px; "
+            + "-fx-font-family: Arial; -fx-prompt-text-fill: #E6E6E6;");
+
+        //loop through the ApplianceTypes enum to get all values for ChoiceBox
+        for (ApplianceTypes type : ApplianceTypes.values()) {
+            applianctTypeList.getItems().add(type.toString());
+        }
+
+        //Make the add Appliance button
+        Button addApplianceBtn = new Button("Add");
+        addApplianceBtn.setStyle("-fx-background-color: #1C2541; "
+                + "-fx-text-fill: #E6E6E9; -fx-border-color: #E6E6E9; "
+                + "-fx-border-width: 2px; -fx-font-size: 18px; "
+                + "-fx-font-family: Arial;");
+        
+        container.getChildren().addAll(
+    applianceInput,
+    applianctTypeList,
+    addApplianceBtn);
+       
+        // Create a new popup window and set its content
+        Stage addAppliancePopUp = new Stage();
+        addAppliancePopUp.initOwner(JProject.getStage());
+        addAppliancePopUp.initModality(Modality.APPLICATION_MODAL);
+        addAppliancePopUp.setTitle("Add Appliance");
+        addAppliancePopUp.setX(JProject.getStage().getX() 
+                + (JProject.getStage().getWidth() - 300) / 2);
+        addAppliancePopUp.setY(JProject.getStage().getY() 
+                + (JProject.getStage().getHeight() - 500) / 2);
+        addAppliancePopUp.setScene(new Scene(container));
+         
+         //Handler to ensure user has entered a name and selected a type
+        addApplianceBtn.setOnAction(event -> {
+            String nameOfAppliance = applianceName.getText().trim();
+            if (nameOfAppliance.isEmpty() || nameOfAppliance == null) {
+                errorHandling.showErrorAlert("Please enter a value");              
+            } 
+            else {  //add an appliance to the room based on the selected type 
+                String selectedType = applianctTypeList.getSelectionModel().getSelectedItem();
+                Appliance appliance;
+                switch (selectedType) {
+                    case "Light":
+                        appliance = new Light(nameOfAppliance);
+                        break;
+                    case "AC":
+                        appliance = new AirConditioner(nameOfAppliance);
+                        break;
+                    case "Dishwasher":
+                        appliance = new DishWasher(nameOfAppliance);
+                        break;
+                    case "Dryer":
+                        appliance = new Dryer(nameOfAppliance);
+                        break;
+                    case "TV":
+                        appliance = new TV(nameOfAppliance);
+                        break;
+                    case "Fridge":
+                        appliance = new Fridge(nameOfAppliance);
+                        break;
+                    case "Washer":
+                        appliance = new Washer(nameOfAppliance);
+                        break;
+                    default:
+                        appliance = new Appliance(nameOfAppliance);
+                }
+                JProject.getHome().getRoom(roomName).addAppliance(appliance);
+                try {
+                    JProject.getHome().getRoom(roomName).addApplianceToFile(appliance);
+                } catch (IOException ex) {
+                    System.out.println("Error: problem adding appliance to file");
+                }
+                
+                System.out.println(JProject.getHome().getRoom(roomName)
+                    .getAppliances().size());
+                //If user adds an appliance (if appliances list is not empty)
+                if (!JProject.getHome().getRoom(roomName).getAppliances().isEmpty()) {
+                    displayRooms();
+                }
+                addAppliancePopUp.close();
+                }   
+        });
+
+        // Show the popup window using the showAndWait() method
+        addAppliancePopUp.showAndWait(); 
     });
     menu.getItems().add(addAppliance);
 

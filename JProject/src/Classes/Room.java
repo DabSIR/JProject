@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import jproject.ErrorHandling;
+import jproject.errorHandling;
 
 public class Room {
 
@@ -62,7 +62,7 @@ public class Room {
             }
         }
         else {
-            ErrorHandling.showErrorAlert("Porblem adding the appliance please retry");
+            errorHandling.showErrorAlert("Porblem adding the appliance please retry");
         }
         
     }

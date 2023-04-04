@@ -1,6 +1,1 @@
 
-Apple TV,TV
-
-Dish Washer,DishWasher
-Light 01,Light
-Light 02,Light
