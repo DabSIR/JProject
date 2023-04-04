@@ -55,7 +55,10 @@ public class AddAppliancePopUpController implements Initializable {
         //loop through the ApplianceTypes enum to get all values for ChoiceBox
         for (ApplianceTypes type : ApplianceTypes.values()) {
             applianceTypeList.getItems().add(type.toString());
-        }         
+        }  
+//        
+//        applianceName.setStyle("-fx-text-fill: #E6E6E6;");
+//        applianceTypeList.setStyle("-fx-text-fill: #E6E6E6;");
     }
  
     @FXML
