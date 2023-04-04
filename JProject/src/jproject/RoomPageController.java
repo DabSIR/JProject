@@ -160,7 +160,7 @@ public class RoomPageController implements Initializable {
         addButton.setOnAction(e -> {
             String roomName = roomNameField.getText().trim();
             if (roomName.isEmpty()) {
-                ErrorHandling.showErrorAlert("Please enter a value");
+                ErrorHandle.showErrorAlert("Please enter a value");
             } else {
                 Room newRoom = new Room(roomName);
                 JProject.getHome().addRoom(roomName, newRoom);
@@ -253,7 +253,7 @@ public class RoomPageController implements Initializable {
                 roomController.setRoom(selectedRoom);
                 JProject.changeScene(roomViewPage);
             } catch (IOException ex) {
-                ErrorHandling.showErrorAlert("Problem loading room please retry.");
+                ErrorHandle.showErrorAlert("Problem loading room please retry.");
             }
         }
     });
@@ -274,7 +274,7 @@ public class RoomPageController implements Initializable {
             stage.showAndWait(); 
             displayRooms();
         } catch (IOException ex) {
-            ErrorHandling.showErrorAlert("Error, please retry.");
+            ErrorHandle.showErrorAlert("Error, please retry.");
         }
     });
     menu.getItems().add(addAppliance);

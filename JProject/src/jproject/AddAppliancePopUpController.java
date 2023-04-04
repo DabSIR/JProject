@@ -66,7 +66,7 @@ public class AddAppliancePopUpController implements Initializable {
         String nameOfAppliance = applianceName.getText().trim();
             if (nameOfAppliance.isEmpty() || nameOfAppliance == null
                 || applianceTypeList.getSelectionModel().getSelectedItem() == null) {
-                ErrorHandling.showErrorAlert("Please enter a name for"
+                ErrorHandle.showErrorAlert("Please enter a name for"
                     + "the appliance");              
             } 
             else {  //add an appliance to the room based on the selected type 
@@ -104,7 +104,7 @@ public class AddAppliancePopUpController implements Initializable {
                 try {
                     room.addApplianceToFile(appliance);
                 } catch (IOException ex) {
-                    ErrorHandling.showErrorAlert("Error adding appliance, please retry.");
+                    ErrorHandle.showErrorAlert("Error adding appliance, please retry.");
                 }
                 //If user adds an appliance (if appliances list is not empty)
                 if (!room.getAppliances().isEmpty()) {

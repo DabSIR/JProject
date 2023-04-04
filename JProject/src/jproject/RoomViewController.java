@@ -165,7 +165,7 @@ public class RoomViewController implements Initializable {
             stage.showAndWait(); 
             setRoom(room);
         } catch (IOException ex) {
-            ErrorHandling.showErrorAlert("Error please retry.");
+            ErrorHandle.showErrorAlert("Error please retry.");
         }
     }
     
